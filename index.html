@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignupTest</title>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(34, 34, 34);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover;
+            overflow-x: hidden;
+            font-family: sans-serif;
+        }
+        #window{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            box-shadow: 0px 0px 10px rgb(0, 0, 0);
+            border: 0px rgb(0, 0, 0) solid;
+            width: 310px;
+            height: 420px;
+            margin-top: 95px;
+            align-items: center;
+            background-color: rgb(27, 27, 27);
+        }
+        #txt1{
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 55px;
+        }
+        #Username, #ppassword, #email{
+            height: 30px;
+            width: 240px;
+            border-style: solid;
+            border-color: black;
+            text-align: center;
+            outline: none;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 2px;
+            background-color: rgb(170, 170, 170);
+            margin-bottom: 21px;
+        }
+        #policy{
+            width: 17px;
+            height: 16px;
+            background-color: white;
+            border-style: solid;
+            border-width: 1px;
+            margin-left: -269px;
+            margin-top: -14px;
+        }
+        #boldtext{
+            font-weight: bold;
+            color:rgb(10, 172, 172);
+        }
+        #policyaccept{
+            font-size: 13px;
+            margin-top: -16px;
+            color: white;
+        }
+        #Signup{
+            width: 150px;
+            height: 35px;
+            font-weight: bold;
+            background-color: rgb(170, 170, 170);
+            border-width: 1.5px;
+        }
+        #Signup:hover{
+            border-color: orangered;
+            color: orangered;
+        }
+        #hint, #hint1, #hint2{
+            color: transparent;
+            font-size: 13px;
+            margin-top: -20px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        #wow{
+            font-weight: bolder;
+            color: transparent;
+        }
+    </style>
+    <div id="Window">
+        <p id="txt1">Sign Up</p>
+        <input id="Username" type="text" placeholder="Create Username">
+        <p id="hint1"></p>
+        <input id="ppassword" type="password" placeholder="Create Password">
+        <p id="hint"></p>
+        <input id="email" type="email" placeholder="Email Address">
+        <p id="hint2"></p>
+        <button id="policy"></button>
+        <p id="policyaccept">by clicking you accept our <span id="boldtext">privacy policy</span></p>
+        <button id="Signup" disabled>Sign Up</button>
+    </div>
+    <p id="wow"></p>
+    <script>
+        var policy = document.getElementById("policy")
+        var signup = document.getElementById("Signup")
+        var pass = document.getElementById("ppassword")
+        var hint = document.getElementById("hint")
+        var user =  document.getElementById("Username")
+        var hint1 =  document.getElementById("hint1")
+        var email = document.getElementById("email")
+        var Window = document.getElementById("Window")
+        var wow = document.getElementById("wow")
+        policy.onclick = function(){
+            if(policy.style.backgroundColor="transparent"){
+                policy.style.backgroundColor="green"
+                document.getElementById("Signup").disabled = false;
+            }
+        }
+        signup.onclick = function(){
+            if(user.value.length <6){
+           hint1.style.color="red"
+            hint1.innerHTML="Name contains less than 6 characters"
+            user.style.borderColor="red"
+            setTimeout(function() {
+                hint1.style.color="transparent"
+                user.style.borderColor="black"
+                hint1.innerHTML=""
+            }, 3000);
+        }
+    
+        else if(pass.value.length <8){
+            hint.style.color="red"
+            hint.innerHTML="Password contains less than 8 characters"
+            pass.style.borderColor="red"
+            setTimeout(function() {
+                hint.style.color="transparent"
+                pass.style.borderColor="black"
+                hint.innerHTML=""
+            }, 3000);
+        }
+        else if(document.getElementById("email").value.length<15){
+            hint2.style.color="red"
+            hint2.innerHTML="Password contains less than 15 characters"
+            email.style.borderColor="red"
+            setTimeout(function() {
+                hint2.style.color="transparent"
+                email.style.borderColor="black"
+                hint2.innerHTML=""
+            }, 3000);
+        }
+        else(
+            Window.style.marginTop="-1100px",
+           wow.style.color="black",
+            wow.style.marginTop="850px",
+            wow.innerHTML="Congrats you signed up you absolute fuck  now give me 500 pushups",
+            console.log("Username:",user.value, "Password:", pass.value)
+        )
+    }
+    </script>
+</body>
+</html>
